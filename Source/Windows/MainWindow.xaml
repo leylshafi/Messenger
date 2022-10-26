@@ -1,0 +1,94 @@
+﻿<Window x:Class="Source.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Source.Windows"
+        mc:Ignorable="d"
+         Icon="/Icons/messenger.png"
+        Title="MainWindow" Height="500" Width="400"
+        MinWidth="330" MinHeight="450"
+        MaxHeight="600" MaxWidth="500"
+        Name="Wndw">
+    <Grid x:Name="grid" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Width="60" Height="60" Margin="6" Source="{Binding Sender.ImageUrl}">
+            </Image>
+            <StackPanel Grid.Column="1">
+                <Label FontSize="25" 
+               VerticalContentAlignment="Center"
+               FontWeight="Medium"
+               FontFamily="Times New Roman"
+               Width="215"
+               Content="{Binding Sender.Fullname}"
+               Foreground="White"></Label>
+                <Label Foreground="MediumPurple" Content="Online"></Label>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="2">
+                <Viewbox MaxWidth="30" MaxHeight="30" >
+                    <Image Source="/Icons/icons8-phone-90.png" ></Image>
+                </Viewbox>
+                <Viewbox Margin="5 0 0 0" MaxWidth="30" MaxHeight="30" >
+                    <Image Source="/Icons/icons8-video-call-100.png" ></Image>
+                </Viewbox>
+                <Button Margin="3" Width="30" Height="30" BorderBrush="{x:Null}" Click="Button_Click_2">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Icons/icons8-info-100.png"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <ListView x:Name="listView" ItemsSource="{Binding Messages}"  Width="360" Margin="4"
+         
+                 Grid.Row="1"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden" Background="Black">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Background="MediumPurple">
+                        <TextBlock 
+                            Margin="5"
+                            Background="Transparent"
+                                    Foreground="FloralWhite"
+                                Text="{Binding MessageText}" 
+                                TextWrapping="WrapWithOverflow"
+                                    Padding="0 0 25 0"
+                                FontSize="16" 
+                                HorizontalAlignment="Right"
+                                MaxWidth="{Binding ActualWidth, ElementName=Wndw}" 
+                                MaxHeight="{Binding ActualHeight, ElementName=Wndw}" />
+                        <TextBlock Text="{Binding Date}" FontSize="10" TextAlignment="Left" VerticalAlignment="Bottom"/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListView>
+        <StackPanel Grid.Row="2" Width="390" VerticalAlignment="Bottom" Height="70" Orientation="Horizontal">
+            <TextBox x:Name="txtMsg" Margin="12 10 0 10" Width="290" Background="DimGray" Foreground="WhiteSmoke"></TextBox>
+            <Button Height="50" Width="50" Click="Button_Click" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" FontFamily="Times New Roman">Send</Button>
+            <Button Width="30" Height="30" BorderBrush="{x:Null}" Click="Button_Click_1">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Icons/icons8-smiling-96.png"/>
+                </Button.Background>
+                <Button.Foreground>
+                    <ImageBrush/>
+                </Button.Foreground>
+            </Button>
+        </StackPanel>
+
+
+    </Grid>
+</Window>

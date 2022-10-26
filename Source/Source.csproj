@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\icons8-info-100.png" />
+    <None Remove="Icons\icons8-smiling-96.png" />
+    <None Remove="Icons\icons8-video-call-100.png" />
+    <None Remove="Icons\messenger.png" />
+    <None Remove="Icons\messenger_icon-icons.com_71982.ico" />
+    <None Remove="Windows\icons8-phone-90.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="34.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\icons8-info-100.png" />
+    <Resource Include="Icons\icons8-phone-90.png" />
+    <Resource Include="Icons\icons8-smiling-96.png" />
+    <Resource Include="Icons\icons8-video-call-100.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\messenger.png" />
+    <Resource Include="Icons\messenger_icon-icons.com_71982.ico" />
+  </ItemGroup>
+
+</Project>

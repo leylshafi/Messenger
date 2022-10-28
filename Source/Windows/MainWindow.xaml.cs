@@ -51,7 +51,7 @@ public partial class MainWindow : Window
 
         await Task.Run(() => {
 
-            Thread.Sleep(messageSize * 700);
+            Thread.Sleep(1000);
 
             Messages.Add(new Message()
             {
